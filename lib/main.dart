@@ -1,4 +1,4 @@
-import 'package:ebook/features/splash_view/presentation_layer/pages/splash_screen.dart';
+import 'package:ebook/features/home_view/presentation_layer/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'core/utils/app_colors.dart';
 
@@ -16,7 +16,7 @@ class EbookApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.primaryColor,
       ),
-      home: const SplashScreen(),
+      home: const HomePage(),
     );
   }
 }

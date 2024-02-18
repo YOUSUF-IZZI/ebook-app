@@ -17,7 +17,7 @@ class _AnimatedSplashScreenTextState extends State<AnimatedSplashScreenText>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 1200),
     )..forward();
 
     _scaleAnimation = Tween<double>(begin: 0.2, end: 1.0).animate(
