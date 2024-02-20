@@ -1,6 +1,6 @@
-import 'package:ebook/features/home_view/presentation_layer/pages/home_page.dart';
+import 'package:ebook/core/utils/app_router.dart';
+import 'package:ebook/core/utils/app_themes.dart';
 import 'package:flutter/material.dart';
-import 'core/utils/app_colors.dart';
 
 void main() {
   runApp(const EbookApp());
@@ -11,12 +11,10 @@ class EbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: AppColors.primaryColor,
-      ),
-      home: const HomePage(),
+      theme: AppThemes.dark,
     );
   }
 }
