@@ -1,5 +1,5 @@
-import 'package:ebook/core/utils/app_colors.dart';
 import 'package:ebook/core/utils/app_style.dart';
+import 'package:ebook/features/home_view/presentation_layer/widgets/book_pricing.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
@@ -51,25 +51,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     style: AppStyle.styleMedium20,
                   ),
                   const Spacer(),
-                  const Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 20,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '4.5',
-                    style: AppStyle.styleRegular16,
-                  ),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  Text(
-                    '(2390)',
-                    style: AppStyle.styleRegular16.copyWith(color: AppColors.grey),
-                  ),
+                  const BookPricing(),
                 ],
               ),
             ],

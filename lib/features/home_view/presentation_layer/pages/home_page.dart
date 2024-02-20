@@ -2,14 +2,14 @@ import 'package:ebook/core/utils/app_style.dart';
 import 'package:ebook/features/home_view/presentation_layer/widgets/best_seller_list_view.dart';
 import 'package:ebook/features/home_view/presentation_layer/widgets/books_list_view.dart';
 import 'package:flutter/material.dart';
-import '../widgets/custom_app_bar.dart';
+import '../widgets/home_page_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const HomePageAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: CustomScrollView(

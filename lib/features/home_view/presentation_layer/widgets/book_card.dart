@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class BooksListViewItem extends StatelessWidget {
-  const BooksListViewItem({super.key});
-
+class BookCard extends StatelessWidget {
+  const BookCard({super.key, this.height = 0.25});
+  final double height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.25,
+      height: MediaQuery.sizeOf(context).height * height,
       child: AspectRatio(
         aspectRatio: 0.73,
         child: Container(

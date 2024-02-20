@@ -1,4 +1,4 @@
-import 'package:ebook/features/home_view/presentation_layer/widgets/books_list_view_item.dart';
+import 'package:ebook/features/home_view/presentation_layer/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 
 class BooksListView extends StatelessWidget {
@@ -13,7 +13,7 @@ class BooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
           padding: EdgeInsets.only(right: 13),
-          child: BooksListViewItem(),
+          child: BookCard(),
         ),
       ),
     );

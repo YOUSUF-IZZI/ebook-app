@@ -9,14 +9,23 @@ abstract class AppThemes {
 
   static ThemeData get dark => ThemeData(
     scaffoldBackgroundColor: AppColors.primaryColor,
-    buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.white,
-      textTheme: ButtonTextTheme.primary,
-    ),
+    // App bar theme
     appBarTheme: const AppBarTheme(
       color: Colors.transparent,
       elevation: 0,
       iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+    ),
+    // Text theme
+    textTheme: const TextTheme(
+      bodySmall: TextStyle(
+        color: Colors.white,
+      ),
+      bodyMedium: TextStyle(
+        color: Colors.white,
+      ),
+      bodyLarge: TextStyle(
         color: Colors.white,
       ),
     ),

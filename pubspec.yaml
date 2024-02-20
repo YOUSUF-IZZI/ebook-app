@@ -30,13 +30,14 @@ flutter:
 
 ##############################################################################
   fonts:
-    - family: Montserrat
+    - family: Lora
       fonts:
-        - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Montserrat-Medium.ttf
+        - asset: assets/fonts/Lora-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lora-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Lora-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Lora-Bold.ttf
           weight: 700
 

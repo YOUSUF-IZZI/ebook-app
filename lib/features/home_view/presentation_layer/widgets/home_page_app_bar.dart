@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key,});
+class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HomePageAppBar({super.key,});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

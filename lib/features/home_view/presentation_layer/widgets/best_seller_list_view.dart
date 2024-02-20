@@ -9,7 +9,7 @@ class BestSellerListView extends StatelessWidget {
     return SliverList.builder(
       itemCount: 10,
       itemBuilder: (context, index) => const Padding(
-        padding: EdgeInsets.only(bottom: 15),
+        padding: EdgeInsets.only(bottom: 20),
         child: BestSellerListViewItem(),
       ),
     );
