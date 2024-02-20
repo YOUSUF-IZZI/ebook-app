@@ -1,40 +1,30 @@
 import 'package:ebook/core/utils/app_style.dart';
+import 'package:ebook/features/home_view/presentation_layer/widgets/best_seller_list_view.dart';
 import 'package:ebook/features/home_view/presentation_layer/widgets/books_list_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widgets/custom_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(CupertinoIcons.search),
-            onPressed: () {},
-          ),],
-      ),
+      appBar: const CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(height: 25,),
-            const BooksListView(),
-            const SizedBox(height: 45,),
-            Text(
-              'Best Seller',
-              style: AppStyle.styleMedium20,
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverToBoxAdapter(child: SizedBox(height: 25,)),
+            const SliverToBoxAdapter(child: BooksListView()),
+            const SliverToBoxAdapter(child: SizedBox(height: 45,)),
+            SliverToBoxAdapter(
+              child: Text(
+                'Best Seller',
+                style: AppStyle.styleMedium20,
+              ),
             ),
-            const SizedBox(height: 23,),
-
+            const SliverToBoxAdapter(child: SizedBox(height: 23,)),
+            const BestSellerListView()
           ],
         ),
       ),

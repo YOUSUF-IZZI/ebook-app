@@ -1,4 +1,5 @@
 import 'package:ebook/core/helper/get_responsive_font_size.dart';
+import 'package:ebook/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStyle
@@ -6,6 +7,7 @@ abstract class AppStyle
   // Regular
   static TextStyle styleRegular14 = TextStyle(
     fontSize: getResponsiveFontSize(fontSize: 14),
+    color: AppColors.grey,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w400,
   );
@@ -51,10 +53,22 @@ abstract class AppStyle
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w500,
   );
-static TextStyle styleMedium20 = TextStyle(
+  static TextStyle styleMedium20 = TextStyle(
     fontSize: getResponsiveFontSize(fontSize: 20),
-    fontFamily: 'Inter',
+    fontFamily: 'Montserrat',
     fontWeight: FontWeight.w500,
+  );
+  static TextStyle styleMedium24 = TextStyle(
+    fontSize: getResponsiveFontSize(fontSize: 24),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+  );
+
+  // SemiBold
+  static TextStyle styleSemiBold26 = TextStyle(
+    fontSize: getResponsiveFontSize(fontSize: 26),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
   );
 
 }
