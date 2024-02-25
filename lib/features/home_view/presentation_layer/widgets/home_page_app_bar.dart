@@ -11,6 +11,11 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      title: Image.asset(
+        'assets/images/Logo.png',
+        width: MediaQuery.sizeOf(context).width * 0.25,
+      ),
+      centerTitle: true,
       leading: IconButton(
         icon: const Icon(Icons.menu),
         onPressed: () {
@@ -20,7 +25,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(CupertinoIcons.search),
-          onPressed: () {},
+          onPressed: () {
+            context.push(AppRouter.search);
+          },
         ),],
     );
   }

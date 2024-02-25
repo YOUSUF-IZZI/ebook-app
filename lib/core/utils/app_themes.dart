@@ -11,6 +11,10 @@ abstract class AppThemes {
     scaffoldBackgroundColor: AppColors.primaryColor,
     // App bar theme
     appBarTheme: const AppBarTheme(
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 26,
+      ),
       color: Colors.transparent,
       elevation: 0,
       iconTheme: IconThemeData(

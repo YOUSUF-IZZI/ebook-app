@@ -1,8 +1,8 @@
 import 'package:ebook/features/home_view/presentation_layer/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 
-class BooksListView extends StatelessWidget {
-  const BooksListView({super.key});
+class FeaturedBooksListView extends StatelessWidget {
+  const FeaturedBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {

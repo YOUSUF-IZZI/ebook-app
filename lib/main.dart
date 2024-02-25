@@ -8,7 +8,6 @@ void main() {
 
 class EbookApp extends StatelessWidget {
   const EbookApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
