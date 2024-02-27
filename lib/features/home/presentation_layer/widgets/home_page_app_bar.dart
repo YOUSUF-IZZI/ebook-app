@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomePageAppBar({super.key,});
+  const HomePageAppBar({
+    super.key,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -28,7 +30,8 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {
             context.push(AppRouter.search);
           },
-        ),],
+        ),
+      ],
     );
   }
 }

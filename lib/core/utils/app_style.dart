@@ -2,8 +2,7 @@ import 'package:ebook/core/helper/get_responsive_font_size.dart';
 import 'package:ebook/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-abstract class AppStyle
-{
+abstract class AppStyle {
   // Regular
   static TextStyle styleRegular14 = TextStyle(
     fontSize: getResponsiveFontSize(fontSize: 14),
@@ -75,5 +74,4 @@ abstract class AppStyle
     fontFamily: 'Lora',
     fontWeight: FontWeight.w600,
   );
-
 }

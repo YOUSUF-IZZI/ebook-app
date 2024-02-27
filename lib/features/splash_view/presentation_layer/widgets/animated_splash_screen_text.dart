@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 class AnimatedSplashScreenText extends StatefulWidget {
   const AnimatedSplashScreenText({super.key});
   @override
-  State<AnimatedSplashScreenText> createState() => _AnimatedSplashScreenTextState();
+  State<AnimatedSplashScreenText> createState() =>
+      _AnimatedSplashScreenTextState();
 }
 
 class _AnimatedSplashScreenTextState extends State<AnimatedSplashScreenText>

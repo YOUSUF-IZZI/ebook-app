@@ -1,5 +1,5 @@
 import 'package:ebook/core/utils/app_style.dart';
-import 'package:ebook/features/home_view/presentation_layer/widgets/book_pricing.dart';
+import 'package:ebook/features/home/presentation_layer/widgets/book_pricing.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
@@ -25,7 +25,9 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 24,),
+        const SizedBox(
+          width: 24,
+        ),
         Expanded(
           flex: 5,
           child: Column(

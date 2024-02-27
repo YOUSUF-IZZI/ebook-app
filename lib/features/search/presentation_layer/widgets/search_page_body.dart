@@ -19,8 +19,8 @@ class SearchPageBody extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Center(
-            child: SvgPicture.asset('assets/images/curiosity search-pana.svg')
-          ),
+              child:
+                  SvgPicture.asset('assets/images/curiosity search-pana.svg')),
         ),
       ),
     );

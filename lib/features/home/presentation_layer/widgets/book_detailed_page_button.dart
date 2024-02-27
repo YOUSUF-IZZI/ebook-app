@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_style.dart';
 
 class BookDetailedPageButton extends StatelessWidget {
-  const BookDetailedPageButton({super.key,});
+  const BookDetailedPageButton({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,14 @@ class BookDetailedPageButton extends StatelessWidget {
                   color: Colors.white,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
                     ),
                   ),
-                  child: Text('19.99€', style: AppStyle.styleMedium18.copyWith(color: Colors.black),)
-              ),
+                  child: Text(
+                    '19.99€',
+                    style: AppStyle.styleMedium18.copyWith(color: Colors.black),
+                  )),
             ),
           ),
           Expanded(
@@ -39,8 +43,10 @@ class BookDetailedPageButton extends StatelessWidget {
                       topRight: Radius.circular(15),
                     ),
                   ),
-                  child: Text('Free preview', style: AppStyle.styleMedium18.copyWith(color: Colors.white),)
-              ),
+                  child: Text(
+                    'Free preview',
+                    style: AppStyle.styleMedium18.copyWith(color: Colors.white),
+                  )),
             ),
           ),
         ],

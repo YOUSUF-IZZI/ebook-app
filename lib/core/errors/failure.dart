@@ -1,17 +1,15 @@
 import 'package:dio/dio.dart';
 
-
 abstract class Failure {
   final String errorMessage;
   const Failure({required this.errorMessage});
 }
 
-
 class ServerFailure extends Failure {
   ServerFailure({required super.errorMessage});
 
   factory ServerFailure.fromDioError(DioException dioException) {
-    switch(dioException.type) {
+    switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure(errorMessage: 'Connection Timeout');
       case DioExceptionType.sendTimeout:
@@ -23,7 +21,8 @@ class ServerFailure extends Failure {
       case DioExceptionType.badResponse:
         return ServerFailure(errorMessage: 'Bad Response');
       case DioExceptionType.cancel:
-        return ServerFailure(errorMessage: 'Request to API server was Cancelled');
+        return ServerFailure(
+            errorMessage: 'Request to API server was Cancelled');
       case DioExceptionType.connectionError:
         return ServerFailure(errorMessage: 'Connection Error');
       case DioExceptionType.unknown:
@@ -32,7 +31,7 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromStatusCode(int statusCode) {
-    switch(statusCode) {
+    switch (statusCode) {
       case 400:
         return ServerFailure(errorMessage: 'Bad Request');
       case 401:
@@ -42,7 +41,8 @@ class ServerFailure extends Failure {
       case 404:
         return ServerFailure(errorMessage: 'Not Found');
       case 500:
-        return ServerFailure(errorMessage: 'Internal Server Error, Please try again later');
+        return ServerFailure(
+            errorMessage: 'Internal Server Error, Please try again later');
       case 502:
         return ServerFailure(errorMessage: 'Bad Gateway');
       case 503:
@@ -53,5 +53,4 @@ class ServerFailure extends Failure {
         return ServerFailure(errorMessage: 'Server Error');
     }
   }
-
 }

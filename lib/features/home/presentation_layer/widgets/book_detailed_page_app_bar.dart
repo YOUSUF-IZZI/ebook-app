@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-class BookDetailedPageAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const BookDetailedPageAppbar({super.key,});
+class BookDetailedPageAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const BookDetailedPageAppbar({
+    super.key,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
