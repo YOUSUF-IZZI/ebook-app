@@ -1,8 +1,10 @@
+import 'package:ebook/core/utils/app_router.dart';
 import 'package:ebook/core/utils/app_style.dart';
 import 'package:ebook/features/home/presentation_layer/cubits/similar_books/similar_books_cubit.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SuggestedBooksComponent extends StatelessWidget {
   const SuggestedBooksComponent({super.key});
@@ -25,14 +27,18 @@ class SuggestedBooksComponent extends StatelessWidget {
                 return SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.15,
                   child: ListView.builder(
-                    itemCount: 5,
+                    itemCount: state.books.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: BookCard(
-                        imageUrl:
-                            state.books[index].volumeInfo.imageLinks.thumbnail!,
-                        height: 0.15,
+                      child: GestureDetector(
+                        onTap: () => context.push(AppRouter.bookDetailed,
+                            extra: state.books[index]),
+                        child: BookCard(
+                          imageUrl: state
+                              .books[index].volumeInfo.imageLinks.thumbnail!,
+                          height: 0.15,
+                        ),
                       ),
                     ),
                   ),

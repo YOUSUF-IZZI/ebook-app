@@ -1,8 +1,12 @@
 import 'package:ebook/core/utils/app_colors.dart';
+import 'package:ebook/features/search/presentation_layer/cubits/search/search_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/utils/app_style.dart';
+
+final TextEditingController _searchController = TextEditingController();
 
 class SearchPageAppBar extends StatelessWidget {
   const SearchPageAppBar({
@@ -23,6 +27,7 @@ class SearchPageAppBar extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back),
           onPressed: () {
+            _searchController.text = '';
             context.pop();
           },
         ),
@@ -33,12 +38,22 @@ class SearchPageAppBar extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: TextField(
+              style: AppStyle.styleMedium16.copyWith(color: Colors.black),
+              controller: _searchController,
               decoration: InputDecoration(
-                hintText: 'Search for books by title, author, or category',
+                hintText: 'Search for books by category',
                 hintStyle: AppStyle.styleMedium16,
-                prefixIcon: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
+                suffixIcon: IconButton(
+                  icon: const Icon(
+                    Icons.search,
+                    color: Colors.deepPurple,
+                  ),
+                  onPressed: () {
+                    if (_searchController.text.isNotEmpty) {
+                      BlocProvider.of<SearchCubit>(context)
+                          .searchBooks(query: _searchController.text);
+                    }
+                  },
                 ),
                 filled: true,
                 fillColor: Colors.white,
