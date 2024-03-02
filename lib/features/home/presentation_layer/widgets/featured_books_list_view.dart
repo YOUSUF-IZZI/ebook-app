@@ -1,7 +1,9 @@
+import 'package:ebook/core/utils/app_router.dart';
 import 'package:ebook/features/home/presentation_layer/cubits/featured_books/featured_books_cubit.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -16,10 +18,16 @@ class FeaturedBooksListView extends StatelessWidget {
             child: ListView.builder(
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) =>  Padding(
+              itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(right: 18),
-                child: BookCard(
-                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail ?? 'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
+                child: GestureDetector(
+                  onTap: () => context.push(AppRouter.bookDetailed,
+                      extra: state.books[index]),
+                  child: BookCard(
+                    imageUrl: state
+                            .books[index].volumeInfo.imageLinks.thumbnail ??
+                        'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
+                  ),
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:ebook/core/utils/app_colors.dart';
 import 'package:ebook/core/utils/app_style.dart';
+import 'package:ebook/features/home/domain_layer/book_model/book_model.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_card.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_pricing.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/suggested_books_component.dart';
@@ -8,8 +9,8 @@ import '../widgets/book_detailed_page_app_bar.dart';
 import '../widgets/book_detailed_page_button.dart';
 
 class BookDetailedPage extends StatelessWidget {
-  const BookDetailedPage({super.key});
-
+  const BookDetailedPage({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,10 +22,9 @@ class BookDetailedPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Center(
+            Center(
               child: BookCard(
-                imageUrl:
-                    'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail!,
                 height: 0.35,
               ),
             ),
@@ -32,29 +32,32 @@ class BookDetailedPage extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'The Jungle Book',
+              bookModel.volumeInfo.title!,
               style: AppStyle.styleSemiBold32,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 13,
             ),
             Text(
-              'Rudyard Kipling',
+              bookModel.volumeInfo.authors![0],
               textAlign: TextAlign.center,
               style: AppStyle.styleRegular18.copyWith(color: AppColors.grey),
             ),
             const SizedBox(
               height: 20,
             ),
-            //const BookPricing.BookRating(),
+            BookInfo(bookModel: bookModel),
             const SizedBox(
               height: 40,
             ),
-            const BookDetailedPageButton(),
+            BookDetailedPageButton(
+              bookModel: bookModel,
+            ),
             const SizedBox(
               height: 50,
             ),
-            const SuggestedBooksComponent()
+            const SafeArea(child: SuggestedBooksComponent())
           ],
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:ebook/core/utils/app_style.dart';
+import 'package:ebook/features/home/presentation_layer/cubits/similar_books/similar_books_cubit.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SuggestedBooksComponent extends StatelessWidget {
   const SuggestedBooksComponent({super.key});
@@ -17,19 +19,30 @@ class SuggestedBooksComponent extends StatelessWidget {
             style: AppStyle.styleMedium20,
           ),
           const SizedBox(height: 15),
-          SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.15,
-            child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.only(right: 8),
-                child: BookCard(
-                  imageUrl: 'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
-                  height: 0.15,
-                ),
-              ),
-            ),
+          BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
+            builder: (context, state) {
+              if (state is SimilarBooksSuccess) {
+                return SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.15,
+                  child: ListView.builder(
+                    itemCount: 5,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: BookCard(
+                        imageUrl:
+                            state.books[index].volumeInfo.imageLinks.thumbnail!,
+                        height: 0.15,
+                      ),
+                    ),
+                  ),
+                );
+              } else if (state is SimilarBooksFailure) {
+                return Center(child: Text(state.errMessage));
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
           )
         ],
       ),

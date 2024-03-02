@@ -21,7 +21,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(Icons.menu),
         onPressed: () {
-          context.push(AppRouter.bookDetailed);
+          //context.push(AppRouter.bookDetailed);
         },
       ),
       actions: [

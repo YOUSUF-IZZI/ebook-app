@@ -20,7 +20,7 @@ class BookInfo extends StatelessWidget {
           width: 5,
         ),
         Text(
-          bookModel.volumeInfo.pageCount.toString() ?? '0',
+          bookModel.volumeInfo.pageCount.toString(),
           style: AppStyle.styleRegular16,
         ),
         const SizedBox(

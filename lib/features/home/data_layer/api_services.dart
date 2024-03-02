@@ -7,26 +7,6 @@ class ApiServices {
   final Dio _dio = Dio();
   final String baseUrl = 'https://www.googleapis.com/books/v1/';
 
-  Future<Either<Failure, List<BookModel>>> getNewestBooks() async {
-    try {
-      final response = await _dio.get(
-          '${baseUrl}volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming');
-      if (response.statusCode == 200) {
-        final List<BookModel> books = [];
-        for (var item in response.data['items']) {
-          books.add(BookModel.fromJson(item));
-        }
-        return Right(books);
-      } else {
-        return Left(ServerFailure.fromStatusCode(response.statusCode!));
-      }
-    } on DioException catch (e) {
-      return Left(ServerFailure.fromDioError(e));
-    } catch (e) {
-      return Left(ServerFailure(errorMessage: 'Something went wrong'));
-    }
-  }
-
   Future<Either<Failure, List<BookModel>>> getFeaturedBooks() async {
     try {
       final response = await _dio
@@ -43,10 +23,51 @@ class ApiServices {
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioError(e));
     } catch (e) {
-      return Left(ServerFailure(errorMessage: 'Something went wrong'));
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  Future<Either<Failure, List<BookModel>>> getNewestBooks() async {
+    try {
+      final response = await _dio.get(
+          '${baseUrl}volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Mathematics');
+      if (response.statusCode == 200) {
+        final List<BookModel> books = [];
+        for (var item in response.data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return Right(books);
+      } else {
+        return Left(ServerFailure.fromStatusCode(response.statusCode!));
+      }
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  Future<Either<Failure, List<BookModel>>> getSimilarBooks() async {
+    try {
+      final response = await _dio.get(
+          '${baseUrl}volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:Programming');
+      if (response.statusCode == 200) {
+        final List<BookModel> books = [];
+        for (var item in response.data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
+        return Right(books);
+      } else {
+        return Left(ServerFailure.fromStatusCode(response.statusCode!));
+      }
+    } on DioException catch (e) {
+      return Left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
 }
+
 
 // API services for the app
 // dio package is used for making network requests
