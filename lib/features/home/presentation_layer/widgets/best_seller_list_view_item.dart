@@ -1,10 +1,12 @@
 import 'package:ebook/core/utils/app_style.dart';
+import 'package:ebook/features/home/domain_layer/book_model/book_model.dart';
 import 'package:ebook/features/home/presentation_layer/widgets/book_pricing.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+class NewestBooksListViewItem extends StatelessWidget {
+  const NewestBooksListViewItem({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,13 +16,13 @@ class BestSellerListViewItem extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 0.73,
             child: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                      'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg'),
+                  image:
+                      NetworkImage(bookModel.volumeInfo.imageLinks.thumbnail!),
                   fit: BoxFit.cover,
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(14)),
+                borderRadius: const BorderRadius.all(Radius.circular(14)),
               ),
             ),
           ),
@@ -34,13 +36,13 @@ class BestSellerListViewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Harry Potter and the Goblet of Fire',
+                bookModel.volumeInfo.title!,
                 style: AppStyle.styleMedium24,
                 maxLines: 2,
               ),
               const SizedBox(height: 8),
               Text(
-                'J.K. Rowling',
+                bookModel.volumeInfo.authors![0],
                 style: AppStyle.styleRegular14,
               ),
               const SizedBox(
@@ -49,11 +51,13 @@ class BestSellerListViewItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '\$ 15.00',
+                    'Free',
                     style: AppStyle.styleMedium20,
                   ),
                   const Spacer(),
-                  const BookPricing(),
+                  BookInfo(
+                    bookModel: bookModel,
+                  ),
                 ],
               ),
             ],

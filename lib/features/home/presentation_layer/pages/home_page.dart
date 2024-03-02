@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               )),
               SliverToBoxAdapter(
                 child: Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: AppStyle.styleMedium20,
                 ),
               ),
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                   child: SizedBox(
                 height: 23,
               )),
-              const BestSellerListView()
+              const NewestBooksListView()
             ],
           ),
         ),

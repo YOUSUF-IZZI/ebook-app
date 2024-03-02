@@ -32,26 +32,17 @@ class ApiServices {
       final response = await _dio
           .get('${baseUrl}volumes?Filtering=free-ebooks&q=subject:Programming');
       if (response.statusCode == 200) {
-        print('--------------11------------------');
         final List<BookModel> books = [];
-        print('----------------22----------------');
         for (var item in response.data['items']) {
-          print('----------------2.3.5----------------');
-          print(response.data['items']);
           books.add(BookModel.fromJson(item));
-          print('----------------33----------------');
         }
-        print('----------------44----------------');
-
         return Right(books);
       } else {
         return Left(ServerFailure.fromStatusCode(response.statusCode!));
       }
     } on DioException catch (e) {
-      print('----------------55----------------');
       return Left(ServerFailure.fromDioError(e));
     } catch (e) {
-      print('----------------66----------------');
       return Left(ServerFailure(errorMessage: 'Something went wrong'));
     }
   }

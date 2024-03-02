@@ -22,9 +22,12 @@ class BookDetailedPage extends StatelessWidget {
               height: 20,
             ),
             const Center(
-              child: BookCard(imageUrl: 'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
-              height: 0.35,
-            ),),
+              child: BookCard(
+                imageUrl:
+                    'https://media1.popsugar-assets.com/files/thumbor/zdKJYZCXhjgofBgdN2pgF8GkYqY=/fit-in/792x1182/filters:format_auto():upscale()/2023/10/13/881/n/44498184/2b0dce9d74f4e16e_90202302.jpeg',
+                height: 0.35,
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -43,7 +46,7 @@ class BookDetailedPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const BookPricing(),
+            //const BookPricing.BookRating(),
             const SizedBox(
               height: 40,
             ),
