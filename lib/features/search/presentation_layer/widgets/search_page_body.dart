@@ -26,7 +26,7 @@ class SearchPageBody extends StatelessWidget {
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 20, bottom: 20),
-              child: NewestBooksListViewItem(
+              child: BookDetailsListViewItem(
                 bookModel: state.books[index],
               ),
             ),

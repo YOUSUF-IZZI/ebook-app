@@ -1,4 +1,5 @@
 import 'package:ebook/core/utils/app_router.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +15,7 @@ class BookDetailedPageAppbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: const Icon(Icons.close),
+        icon: const Icon(CupertinoIcons.back),
         onPressed: () => Navigator.pop(context),
       ),
       actions: [

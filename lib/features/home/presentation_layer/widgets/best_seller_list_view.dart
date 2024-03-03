@@ -16,7 +16,7 @@ class NewestBooksListView extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(bottom: 20),
-              child: NewestBooksListViewItem(
+              child: BookDetailsListViewItem(
                 bookModel: state.books[index],
               ),
             ),

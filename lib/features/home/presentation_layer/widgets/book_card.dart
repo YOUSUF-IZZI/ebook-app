@@ -12,12 +12,14 @@ class BookCard extends StatelessWidget {
         aspectRatio: 0.73,
         child: Container(
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(imageUrl),
-              fit: BoxFit.cover,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(14)),
-          ),
+              image: DecorationImage(
+                image: NetworkImage(imageUrl),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(14),
+                bottomRight: Radius.circular(14),
+              )),
         ),
       ),
     );

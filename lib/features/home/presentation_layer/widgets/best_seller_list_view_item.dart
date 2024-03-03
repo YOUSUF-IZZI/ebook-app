@@ -5,8 +5,8 @@ import 'package:ebook/features/home/presentation_layer/widgets/book_pricing.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class NewestBooksListViewItem extends StatelessWidget {
-  const NewestBooksListViewItem({super.key, required this.bookModel});
+class BookDetailsListViewItem extends StatelessWidget {
+  const BookDetailsListViewItem({super.key, required this.bookModel});
 
   final BookModel bookModel;
   @override
@@ -26,7 +26,10 @@ class NewestBooksListViewItem extends StatelessWidget {
                         bookModel.volumeInfo.imageLinks.thumbnail!),
                     fit: BoxFit.cover,
                   ),
-                  borderRadius: const BorderRadius.all(Radius.circular(14)),
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(14),
+                    bottomRight: Radius.circular(14),
+                  ),
                 ),
               ),
             ),
