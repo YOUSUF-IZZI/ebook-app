@@ -19,4 +19,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-- Clone the repo
+1. Clone the repo
+2. Install Flutter packages
+   flutter pub get
+3. Run the app
+
+
+### Built With
+- Flutter
+- Dartz
+- Dio
+- Flutter Bloc
+- Go Router
+- URL Launcher
+
+
